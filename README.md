@@ -1,4 +1,4 @@
-# BicycleComputer
+# Bicycle Computer
 ![Components](images/components.jpg)
 
 ### Feautures
