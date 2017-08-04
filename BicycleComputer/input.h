@@ -22,3 +22,4 @@ private:
 
 	virtual void InputHandler() = 0;
 };
+

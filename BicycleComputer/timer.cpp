@@ -25,3 +25,4 @@ void Timer::TimerHandler()
 		LCD.DrawText("00", 14, 0);
 	}
 }
+

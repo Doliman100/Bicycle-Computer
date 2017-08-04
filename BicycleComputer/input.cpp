@@ -38,3 +38,4 @@ void Input::Interrupt()
 			InputHandler();
 	}
 }
+

@@ -88,3 +88,4 @@ private:
 
 	void SetCursorPos(uint8_t x, uint8_t y);
 } LCD;
+

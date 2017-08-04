@@ -56,3 +56,4 @@ void Speedometer::InputHandler()
 
 	_moving = true;
 }
+

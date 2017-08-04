@@ -132,3 +132,4 @@ void LCD::DrawTextLarge(uint8_t number, uint8_t code)
 
 	interrupts();
 }
+

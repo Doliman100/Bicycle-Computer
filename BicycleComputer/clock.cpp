@@ -13,7 +13,7 @@ void Clock::Init()
 
 uint8_t Clock::BCD2Dec(uint8_t number)
 {
-	return number - (number >> 4) * 6; // взято из RTClib от Adafruit
+	return number - (number >> 4) * 6; // РІР·СЏС‚Рѕ РёР· RTClib РѕС‚ Adafruit
 }
 
 void Clock::ResetHandler()
@@ -58,3 +58,4 @@ void Clock::TimerHandler()
 		LCD.DrawText("00", 8, 0);
 	}
 }
+

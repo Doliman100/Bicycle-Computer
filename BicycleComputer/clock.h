@@ -18,10 +18,11 @@ private:
 	uint8_t _m;
 	uint8_t _h;
 
-	uint32_t _time; // ��������� �������������
+	uint32_t _time; // пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
 
 	uint8_t BCD2Dec(uint8_t number);
 
 	void ResetHandler();
 	void TimerHandler();
 };
+

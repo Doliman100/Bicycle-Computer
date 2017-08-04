@@ -12,8 +12,8 @@ public:
 	void Reset();
 
 private:
-	// 2.1m длинна колеса
-	// 32 прерывания за оборот
+	// 2.1m РґР»РёРЅРЅР° РєРѕР»РµСЃР°
+	// 32 РїСЂРµСЂС‹РІР°РЅРёСЏ Р·Р° РѕР±РѕСЂРѕС‚
 	const uint8_t _distance_delta = 65; // 2100mm / 32;
 	const uint32_t _time_delta_max = _distance_delta * 36000;
 
@@ -28,3 +28,4 @@ private:
 
 	void InputHandler();
 };
+

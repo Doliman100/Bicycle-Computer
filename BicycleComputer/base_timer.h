@@ -22,3 +22,4 @@ private:
 	virtual void ResetHandler() = 0;
 	virtual void TimerHandler() = 0;
 };
+

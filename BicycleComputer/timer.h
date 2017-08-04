@@ -14,3 +14,4 @@ private:
 	void ResetHandler();
 	void TimerHandler();
 };
+
