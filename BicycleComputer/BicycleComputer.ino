@@ -1,3 +1,5 @@
+#include <Wire.h>
+
 #include "core.h"
 
 Core core;
@@ -11,4 +13,3 @@ void loop()
 {
 	core.Update();
 }
-

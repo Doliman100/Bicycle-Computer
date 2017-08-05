@@ -9,11 +9,14 @@
 // PB2	Data 6
 // PB1	Data 5
 // PB0	Data 4
-// PD3	Button
+// PD5	Reset Timer
+// PD4	Reset Odometer
 // PD2	Sensor
 
 Core::Core()
-	: Input(1)
+	: _speedometer(_lcd)
+	, _clock(_lcd)
+	, _timer(_lcd)
 {}
 
 void Core::Init()
@@ -25,8 +28,7 @@ void Core::Init()
 	PORTB = 0b00000000;
 	PORTC = 0b00111111;
 	
-	LCD.Init();
-
+	_lcd.Init();
 	_clock.Init();
 
 	Input::Init();
@@ -36,11 +38,6 @@ void Core::Init()
 void Core::Update()
 {
 	_speedometer.Update();
+	_clock.Update();
+	_timer.Update();
 }
-
-void Core::InputHandler()
-{
-	_speedometer.Reset();
-	_timer.Reset();
-}
-

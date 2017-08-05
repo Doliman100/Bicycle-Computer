@@ -1,30 +1,34 @@
 #include "speedometer.h"
 
-Speedometer::Speedometer()
+Speedometer::Speedometer(LCD &lcd)
 	: Input(0)
+	, Button(4)
+	, _lcd(lcd)
 {}
 
 void Speedometer::Update()
 {
-	if (_moving && (_time < micros() - _time_delta_max))
+	Button::Update();
+
+	if (_moving && (Input::_time - micros() < _time_delta_max_minus)) // _time может измениться в любой момент
 	{
 		_speed_00X = 0;
 		_speed_0X0 = 0;
 		_speed_X00 = 0;
 
-		LCD.DrawTextLarge(0, 0);
-		LCD.DrawTextLarge(0, 1);
-		LCD.DrawText('0', 4, 1);
+		_lcd.DrawTextLarge(0, 0);
+		_lcd.DrawTextLarge(0, 1);
+		_lcd.DrawText('0', 4, 1);
 
 		_moving = false;
 	}
 }
 
-void Speedometer::Reset()
+void Speedometer::ButtonHandler()
 {
 	_distance_mm = 0;
 
-	LCD.DrawText("00000", 11, 1);
+	_lcd.DrawText("00000", 11, 1);
 }
 
 void Speedometer::InputHandler()
@@ -36,7 +40,7 @@ void Speedometer::InputHandler()
 
 		uint32_t distance_m = _distance_mm / 1000;
 		if (distance_m != _distance_m)
-			LCD.DrawText(_distance_m = distance_m, 11, 1, 5);
+			_lcd.DrawText(_distance_m = distance_m, 11, 1, 5);
 	}
 
 	// speedometer
@@ -44,16 +48,15 @@ void Speedometer::InputHandler()
 
 	uint8_t digit = speed % 10;
 	if (digit != _speed_00X)
-		LCD.DrawText((_speed_00X = digit) + '0', 4, 1);
+		_lcd.DrawText((_speed_00X = digit) + '0', 4, 1);
 
 	digit = (speed /= 10) % 10;
 	if (digit != _speed_0X0)
-		LCD.DrawTextLarge(_speed_0X0 = digit, 1);
+		_lcd.DrawTextLarge(_speed_0X0 = digit, 1);
 
 	digit = (speed /= 10) % 10;
 	if (digit != _speed_X00)
-		LCD.DrawTextLarge(_speed_X00 = digit, 0);
+		_lcd.DrawTextLarge(_speed_X00 = digit, 0);
 
 	_moving = true;
 }
-

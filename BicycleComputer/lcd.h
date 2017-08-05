@@ -2,7 +2,7 @@
 
 #include <Arduino.h>
 
-extern class LCD
+class LCD
 {
 public:
 	void Init();
@@ -87,5 +87,4 @@ private:
 	void Write(uint16_t number, uint8_t size);
 
 	void SetCursorPos(uint8_t x, uint8_t y);
-} LCD;
-
+};

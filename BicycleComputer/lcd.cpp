@@ -1,7 +1,5 @@
 #include "lcd.h"
 
-class LCD LCD;
-
 void LCD::Init()
 {
 	delay(40);
@@ -132,4 +130,3 @@ void LCD::DrawTextLarge(uint8_t number, uint8_t code)
 
 	interrupts();
 }
-

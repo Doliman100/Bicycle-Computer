@@ -11,15 +11,15 @@ public:
 
 	BaseTimer(uint8_t timer);
 
-	void Reset();
 	void Interrupt();
 
+protected:
+	void Reset();
+
 private:
-	volatile uint16_t *_ocr;
+	volatile uint16_t &_ocr;
 
 	bool _skip;
 
-	virtual void ResetHandler() = 0;
 	virtual void TimerHandler() = 0;
 };
-
